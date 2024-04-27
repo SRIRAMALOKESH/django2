@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <header>
+        <h1>Our Services</h1>
+    </header>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="services-container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow p-1 mb-5 bg-body rounded">
+                        <div class="card">
+                            <img src="{% static 'img/vehicles.jpg' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Car Service</p>
+                            </div>
+                            <a href="{% url 'customer:service_reg' %}" class="btn btn-primary">Go</a>
+                        </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow p-1 mb-5 bg-body rounded">
+                    <div class="card">
+                        <img src="{% static 'img/pluming.webp' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Plumber</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow p-1 mb-5 bg-body rounded">
+                    <div class="card">
+                        <img src="{% static 'img/house.webp' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">House Cleaning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow p-1 mb-5 bg-body rounded">
+                    <div class="card">
+                        <img src="{% static 'img/transportation.jpg' %}" class="card-img-top" style="height:272px;" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Shifting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow p-1 mb-5 bg-body rounded">
+                    <div class="card">
+                        <img src="{% static 'img/ola.webp' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">TBook a car</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow p-1 mb-5 bg-body rounded">
+                    <div class='card'>
+                        <img src= "{% static 'img/laptop.jpg' %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <p class="card-text">Laptop Repair</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+{% endblock %}

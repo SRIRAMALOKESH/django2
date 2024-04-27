@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1>Welcome to our Service Management System!</h1>
+    </div>
+    <style>
+        /* CSS styles */
+        body {
+            background-image: url('{% static 'img/front.jpg' %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            opacity: 0.9;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block content %}
+    <h2>Sign Up</h2>
+    <form action="{% url ' mech:mech_signup' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="password1" placeholder="Password" required><br>
+        <input type="password" name="password2" placeholder="Confirm Password" required><br>
+        <label>
+            <input type="checkbox" name="application_submitted">
+            Is your application submitted?
+        </label><br>
+        <input type="submit" value="Sign Up">
+    </form>
+{% endblock %}

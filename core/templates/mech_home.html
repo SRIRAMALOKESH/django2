@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+   <h2>Customer Information</h2>
+   {% if service_requests %}
+       <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Pincode</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for info in service_requests %}
+              <tr>
+                <td>{{ info.name }}</td>
+                <td>{{ info.address }}</td>
+                <td>{{ info.pincode }}</td>
+                <td>{{ info.description }}</td>
+                <td>
+                  {% if not info.accepted %}
+                    <form action="{% url 'accept_request' info.id %}" method="post">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-primary">Accept</button>
+                    </form>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+       </table>
+    {% else %}
+       <p>No customer information available.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Job Application & Login
+{% endblock %}
+
+{% block content %}
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .form-container {
+            width: 70%; /* Adjust as needed */
+        }
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .form-container h2 {
+            text-align: center;
+        }
+        /* Adjust styles as needed */
+        .form-container input[type=text],
+        .form-container input[type=password],
+        .form-container input[type=file],
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .form-container input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        .signup-button {
+            background-color: #008CBA;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .signup-button:hover {
+            background-color: #006CBA;
+        }
+    </style>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Apply for a Job</h2>
+            <form id="applicationForm" action="/submit_job_application" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Your Name" required><br>
+                <input type="text" name="email" placeholder="Your Email" required><br>
+                <h7>Upload your Resume<h7>
+                <input type="file" name="resume" accept=".pdf,.doc,.docx" required><br>
+                <input type="submit" value="Submit Application">
+            </form>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h2>Login</h2>
+        <form action="{% url 'mech:mech_login' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="submit" value="Login">
+            <button class="signup-button" onclick="window.location.href='{% url 'mech:mech_signup' %}'">Sign Up</button>
+
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("applicationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Display Django message
+            alert("Your application has been submitted!");
+
+            // Redirect to home page
+            window.location.href = "{% url 'home' %}";
+        });
+    </script>
+{% endblock %}

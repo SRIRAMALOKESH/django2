@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'customer:services' %}">Services</a></li>
+                <li><a href="{% url 'customer:about' %}" class="active">About Us</a></li>
+                <li><a href="{% url 'customer:contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <div class="container">
+            <h2>About Our Service Management System</h2>
+            <p>Welcome to our Service Management System! We are dedicated to providing you with seamless and efficient service solutions for all your needs.</p>
+            <p>Our platform offers a comprehensive range of services, including household maintenance, vehicle repairs, plumbing solutions, and much more. With a focus on quality, reliability, and customer satisfaction, we strive to exceed your expectations every time.</p>
+            <p>At Service Management System, we understand the importance of convenience and peace of mind. That's why we've designed our system to be user-friendly, transparent, and accessible from anywhere, allowing you to schedule and manage services effortlessly.</p>
+            <p>Whether you're a homeowner, a business owner, or anyone in between, our team of skilled professionals is here to assist you with prompt and expert service, ensuring your complete satisfaction.</p>
+            <p>Experience the difference with Service Management System and let us handle your service needs with precision and care. We look forward to serving you!</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Service Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
